@@ -1,0 +1,9 @@
+MODULE Debug
+    Procedure Print(str, debug = TRUE)
+        IFB VARTYPE(debug, VAR_BOOLEAN)
+            GETTIME()
+            Dim date = G_TIME_YY4 + "/" + G_TIME_MM2 + "/" + G_TIME_DD2 + " " + G_TIME_HH2 + ":" + G_TIME_NN2 + ":" + G_TIME_ss2
+            PRINT  date + " " + str
+        ENDIF
+    Fend
+ENDMODULE
