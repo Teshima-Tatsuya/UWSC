@@ -1,0 +1,32 @@
+MODULE Image
+    procedure Click(ImagePath, offset_x=0, offset_y=0, SleepTime=0.5)
+        WHILE TRUE
+            IFB CHKIMG(ImagePath + ".bmp")
+                BTN(LEFT,CLICK,G_IMG_X + offset_x,G_IMG_Y + offset_y)
+                EXIT
+            ENDIF
+            SLEEP(SleepTime)
+        WEND
+    fend
+
+    procedure Wait(ImagePath, SleepTime=0.5)
+        WHILE TRUE
+            IF CHKIMG(ImagePath + ".bmp")
+                EXIT
+            ENDIF
+            SLEEP(SleepTime)
+        WEND
+    fend
+
+    Function WaitMulti(imageNames[], SleepTime=0.5)
+        While TRUE
+            FOR i = 0 TO LENGTH(imageNames) - 1
+                IFB CHKIMG(ImagePath + ".bmp")
+                    RESULT = i
+                    EXIT
+                ENDIF
+            NEXT
+            SLEEP(SleepTime)
+        WEND
+    Fend
+ENDMODULE
